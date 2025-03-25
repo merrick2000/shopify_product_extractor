@@ -1,0 +1,27 @@
+// Configuration de déploiement pour Vercel
+module.exports = {
+  // Paramètres généraux
+  name: "import-agent-web",
+  version: 1,
+  
+  // Configuration des builds
+  builds: [
+    { 
+      src: "package.json", 
+      use: "@vercel/next" 
+    }
+  ],
+  
+  // Configuration des routes
+  routes: [
+    {
+      src: "/(.*)",
+      dest: "/$1"
+    }
+  ],
+  
+  // Variables d'environnement (à configurer dans l'interface Vercel)
+  env: {
+    NEXT_PUBLIC_APP_URL: "https://import-agent-web.vercel.app"
+  }
+};
